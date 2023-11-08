@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<footer class="bg-black">
+  <div class="container flex flex-wrap gap-4 items-center justify-between py-5">
+    <Image
+      src="/assets/images/logo.svg"
+      width={135}
+      height={32}
+      alt="Craftgate"
+    />
+    <nav>
+      <ul class="flex gap-4 text-sm">
+        <li class="flex gap-1.5 items-center">
+          <Image
+            src="/assets/images/github.svg"
+            width={16}
+            height={16}
+            alt="Craftgate Github"
+          />
+          <a href="https://github.com/craftgate">Github</a>
+        </li>
+        <li class="flex gap-1.5 items-center">
+          <Image
+            src="/assets/images/x.svg"
+            width={16}
+            height={16}
+            alt="Craftgate Twitter"
+          />
+          <a href="https://twitter.com/craftgateio">Twitter</a>
+        </li>
+        <li class="flex gap-1.5 items-center">
+          <Image
+            src="/assets/images/linkedin.svg"
+            width={16}
+            height={16}
+            alt="Craftgate Linkedin"
+          />
+          <a href="https://www.linkedin.com/company/craftgate">Linkedin</a>
+        </li>
+        <li class="flex gap-1.5 items-center">
+          <Image
+            src="/assets/images/instagram.svg"
+            width={16}
+            height={16}
+            alt="Craftgate Instagram"
+          />
+          <a href="https://www.instagram.com/craftgateio">Instagram</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>

@@ -1,0 +1,58 @@
+---
+import Header from '@/components/header.astro';
+import Footer from '@/components/footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes"
+    />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="16x16" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+    <div
+      style="background: radial-gradient(74.81% 74.81% at 77.01% 30.21%, rgba(31, 195, 231, 0.84) 0%, #1F34E7 100%);"
+      class="absolute w-[776px] h-[776px] opacity-40 blur-[125px] -top-40 -right-40 -z-10"
+    >
+    </div>
+    <div
+      style="background: radial-gradient(74.81% 74.81% at 77.01% 30.21%, rgba(31, 195, 231, 0.84) 0%, #1F34E7 100%);"
+      class="absolute w-[760px] h-[760px] opacity-20 blur-[150px] -bottom-0 -left-80 -z-10"
+    >
+    </div>
+  </body>
+</html>
+
+<style is:global>
+  @import url('https://fonts.googleapis.com/css2?&family=Rubik:wght@300;400;500&display=swap');
+
+  html {
+    font-family: 'Rubik', system-ui, sans-serif;
+    @apply antialiased text-[14px] sm:text-[16px];
+  }
+  body {
+    @apply relative overflow-x-hidden bg-black text-white;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+</style>

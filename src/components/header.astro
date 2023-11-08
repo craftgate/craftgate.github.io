@@ -1,0 +1,27 @@
+---
+import { Image } from 'astro:assets';
+---
+
+<header
+  class="container flex flex-wrap gap-4 items-center justify-between py-5"
+>
+  <Image
+    src="/assets/images/logo.svg"
+    width={135}
+    height={32}
+    alt="Craftgate"
+  />
+  <nav>
+    <ul class="flex gap-8 font-medium">
+      <li>
+        <a href="https://craftgate.github.io">Open Source</a>
+      </li>
+      <li>
+        <a href="https://github.com/craftgate">Github</a>
+      </li>
+      <li>
+        <a href="https://github.com/craftgate/recruitment">Career</a>
+      </li>
+    </ul>
+  </nav>
+</header>

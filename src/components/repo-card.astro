@@ -1,0 +1,35 @@
+---
+import type { GithubRepo } from '@/types';
+import { Image } from 'astro:assets';
+
+interface Props extends GithubRepo {}
+
+const { name, description, stargazers_count, html_url } = Astro.props;
+---
+
+<a
+  href={html_url}
+  class="group flex flex-col gap-4 p-5 bg-card border border-white rounded-md"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <div class="flex gap-3 items-center">
+    <Image
+      src="/assets/images/bookmark.svg"
+      width={16}
+      height={16}
+      alt="Bookmark"
+    />
+    <h5 class="group-hover:underline">{name}</h5>
+    <div
+      class="text-xs text-tertiary bg-card border border-tertiary rounded-full py-1 px-2"
+    >
+      Public
+    </div>
+  </div>
+  <p class="text-sm text-tertiary">{description}</p>
+  <div class="flex gap-2 items-center">
+    <Image src="/assets/images/star.svg" width={16} height={16} alt="Star" />
+    {stargazers_count}
+  </div>
+</a>
