@@ -4,7 +4,9 @@ import { Image } from 'astro:assets';
 
 <footer class="bg-black">
   <div class="container flex flex-wrap gap-4 items-center justify-between py-5">
-    <Image src="/images/logo.svg" width={135} height={32} alt="Craftgate" />
+    <a href="/">
+      <Image src="/images/logo.svg" width={135} height={32} alt="Craftgate" />
+    </a>
     <nav>
       <ul class="flex gap-4 text-sm">
         <li class="flex gap-1.5 items-center">
@@ -14,7 +16,13 @@ import { Image } from 'astro:assets';
             height={16}
             alt="Craftgate Github"
           />
-          <a href="https://github.com/craftgate">Github</a>
+          <a
+            href="https://github.com/craftgate"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </a>
         </li>
         <li class="flex gap-1.5 items-center">
           <Image
@@ -23,7 +31,12 @@ import { Image } from 'astro:assets';
             height={16}
             alt="Craftgate Twitter"
           />
-          <a href="https://twitter.com/craftgateio">Twitter</a>
+          <a
+            href="https://twitter.com/craftgateio"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Twitter
+          </a>
         </li>
         <li class="flex gap-1.5 items-center">
           <Image
@@ -32,7 +45,12 @@ import { Image } from 'astro:assets';
             height={16}
             alt="Craftgate Linkedin"
           />
-          <a href="https://www.linkedin.com/company/craftgate">Linkedin</a>
+          <a
+            href="https://www.linkedin.com/company/craftgate"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Linkedin
+          </a>
         </li>
         <li class="flex gap-1.5 items-center">
           <Image
@@ -41,7 +59,12 @@ import { Image } from 'astro:assets';
             height={16}
             alt="Craftgate Instagram"
           />
-          <a href="https://www.instagram.com/craftgateio">Instagram</a>
+          <a
+            href="https://www.instagram.com/craftgateio"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Instagram
+          </a>
         </li>
       </ul>
     </nav>
