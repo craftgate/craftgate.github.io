@@ -14,12 +14,7 @@ const { name, description, stargazers_count, html_url } = Astro.props;
   rel="noopener noreferrer"
 >
   <div class="flex gap-3 items-center">
-    <Image
-      src="/assets/images/bookmark.svg"
-      width={16}
-      height={16}
-      alt="Bookmark"
-    />
+    <Image src="/images/bookmark.svg" width={16} height={16} alt="Bookmark" />
     <h5 class="group-hover:underline">{name}</h5>
     <div
       class="text-xs text-tertiary bg-card border border-tertiary rounded-full py-1 px-2"
@@ -29,7 +24,7 @@ const { name, description, stargazers_count, html_url } = Astro.props;
   </div>
   <p class="text-sm text-tertiary">{description}</p>
   <div class="flex gap-2 items-center">
-    <Image src="/assets/images/star.svg" width={16} height={16} alt="Star" />
+    <Image src="/images/star.svg" width={16} height={16} alt="Star" />
     {stargazers_count}
   </div>
 </a>

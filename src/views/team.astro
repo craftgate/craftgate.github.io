@@ -2,7 +2,7 @@
 import TeamMemberCard from '@/components/team-member-card.astro';
 import type { GithubUser } from '@/types';
 
-const GITHUB_TOKEN = import.meta.env.GITHUB_TOKEN;
+const API_TOKEN = import.meta.env.API_TOKEN;
 const USERNAMES = [
   'abalikci',
   'AlicanAkkus',
@@ -25,7 +25,7 @@ const response = await Promise.all(
     fetch(`https://api.github.com/users/${username}`, {
       headers: {
         Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${GITHUB_TOKEN}`,
+        Authorization: `Bearer ${API_TOKEN}`,
         'X-GitHub-Api-Version': '2022-11-28',
       },
     }),
