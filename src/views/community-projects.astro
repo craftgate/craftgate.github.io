@@ -1,0 +1,55 @@
+---
+import type { GithubRepo } from '@/types';
+import { apiClient } from '@/utils';
+
+import RepoCard from '@/components/repo-card.astro';
+
+const PROJECTS = [
+  {
+    username: 'gklp',
+    repo: 'spring-craftgate',
+  },
+  {
+    username: 'salihbilgin',
+    repo: 'craftgatePythonClient',
+  },
+  {
+    username: 'ygunayer',
+    repo: 'craftgate-elixir-client',
+  },
+  {
+    username: 'ygunayer',
+    repo: 'craftgate-java2elixir',
+  },
+  {
+    username: 'dvtkrlbs',
+    repo: 'craftgate-rs',
+  },
+  {
+    username: 'Memo-Lee',
+    repo: 'Subscription-payment',
+  },
+  {
+    username: 'enesozturk',
+    repo: 'sticker-store',
+  },
+];
+
+const data: Array<GithubRepo> = await Promise.all(
+  PROJECTS.map(async ({ username, repo }) => {
+    return apiClient.get(`https://api.github.com/repos/${username}/${repo}`);
+  }),
+);
+---
+
+<section class="container flex flex-col gap-6 mb-24">
+  <h2 class="text-4xl text-center">Community Projects</h2>
+  <p class="text-2xl text-center font-light mb-8">
+    Our commitment to open-source projects invites collaboration and collective
+    ingenuity, driving technology forward for everyone. Never hesitate to jump
+    into them and explore new ways of improvement and innovation.
+  </p>
+  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+    {data.map((repo) => <RepoCard {...repo} />)}
+  </div>
+</section>

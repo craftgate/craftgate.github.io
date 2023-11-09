@@ -11,3 +11,8 @@ export type GithubUser = {
   avatar_url: string;
   html_url: string;
 };
+
+export type CommunityProject = {
+  user: GithubUser;
+  repo: GithubRepo;
+};

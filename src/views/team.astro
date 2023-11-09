@@ -1,49 +1,35 @@
 ---
-import TeamMemberCard from '@/components/team-member-card.astro';
 import type { GithubUser } from '@/types';
+import { apiClient } from '@/utils';
 
-const API_TOKEN = import.meta.env.API_TOKEN;
-const USERNAMES = [
-  'abalikci',
-  'AlicanAkkus',
-  'deryacakmak',
-  'hakanerdogan',
-  'kadirtaskiran',
-  'lemiorhan',
-  'MasterSlave',
-  'melihmutcali',
-  'mhasanince',
-  'onurpolattimur',
-  'reywyn',
-  'semihshn',
-  'sotuzun',
-  'tuncaserhat',
+import TeamMemberCard from '@/components/team-member-card.astro';
+
+const HIDDEN_MEMBERS = [
+  'craftgate-sdlc',
+  'emirgundem',
+  'merveylmaaz90',
+  'ozturkselin',
 ];
 
-const response = await Promise.all(
-  USERNAMES.map((username) =>
-    fetch(`https://api.github.com/users/${username}`, {
-      headers: {
-        Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${API_TOKEN}`,
-        'X-GitHub-Api-Version': '2022-11-28',
-      },
-    }),
-  ),
-);
-const data: Array<GithubUser> = await Promise.all(
-  response.map((res) => res.json()),
-);
+const data = await apiClient
+  .get('https://api.github.com/orgs/craftgate/members')
+  .then((res: Array<Omit<GithubUser, 'name'>>) =>
+    res.filter((member) => !HIDDEN_MEMBERS.includes(member.login)),
+  )
+  .then((members) => {
+    return Promise.all(
+      members.map(async (member) => {
+        return apiClient.get(`https://api.github.com/users/${member.login}`);
+      }),
+    );
+  });
 ---
 
 <section class="container flex flex-col gap-6 mb-24">
-  <h2 class="text-4xl text-center">Team</h2>
+  <h2 class="text-4xl text-center">Our Engineering Team</h2>
   <p class="text-2xl text-center font-light mb-8">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat expedita
-    repellat eaque, qui odio earum officiis harum quam animi accusamus
-    voluptatum obcaecati laboriosam alias, veritatis ipsum, autem culpa iure.
-    Sint repellat autem nisi facere illo perspiciatis cumque impedit doloremque
-    voluptate.
+    Craftgate is a tech company that focuses on the fintech industry. We are
+    working with high-qualified software engineers who have deep knowledge
   </p>
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     {data.map((user) => <TeamMemberCard {...user} />)}

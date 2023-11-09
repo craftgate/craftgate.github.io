@@ -1,21 +1,25 @@
 ---
-import RepoCard from '@/components/repo-card.astro';
 import type { GithubRepo } from '@/types';
+import { apiClient } from '@/utils';
 
-const API_TOKEN = import.meta.env.API_TOKEN;
+import RepoCard from '@/components/repo-card.astro';
 
-const response = await fetch('https://api.github.com/orgs/craftgate/repos', {
-  headers: {
-    Accept: 'application/vnd.github+json',
-    Authorization: `Bearer ${API_TOKEN}`,
-    'X-GitHub-Api-Version': '2022-11-28',
-  },
-});
-const data: Array<GithubRepo> = await response.json();
+const HIDDEN_REPOS = ['action-send-mail', '.github'];
+
+const data = await apiClient
+  .get('https://api.github.com/orgs/craftgate/repos')
+  .then((res: Array<GithubRepo>) =>
+    res.filter((repo) => !HIDDEN_REPOS.includes(repo.name)),
+  );
 ---
 
-<section class="container flex flex-col gap-12 mb-24">
+<section class="container flex flex-col gap-6 mb-24">
   <h2 class="text-4xl text-center">Open Source Projects</h2>
+  <p class="text-2xl text-center font-light mb-8">
+    Our software crafters designed and implemented so many libraries that our
+    merchants can easily integrate Craftgate API into their platforms. Please
+    checkout our public repositories hosted in our Github organization.
+  </p>
   <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
     {data.map((repo) => <RepoCard {...repo} />)}
   </div>
