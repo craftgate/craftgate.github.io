@@ -16,6 +16,6 @@ const get = async (url: string) => {
   }
 };
 
-export const apiClient = {
+export const githubClient = {
   get,
 };

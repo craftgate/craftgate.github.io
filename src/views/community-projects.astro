@@ -1,6 +1,6 @@
 ---
 import type { GithubRepo } from '@/types';
-import { apiClient } from '@/utils';
+import { githubClient } from '@/utils';
 
 import RepoCard from '@/components/repo-card.astro';
 
@@ -37,7 +37,7 @@ const PROJECTS = [
 
 const data: Array<GithubRepo> = await Promise.all(
   PROJECTS.map(async ({ username, repo }) => {
-    return apiClient.get(`https://api.github.com/repos/${username}/${repo}`);
+    return githubClient.get(`https://api.github.com/repos/${username}/${repo}`);
   }),
 );
 ---

@@ -1,12 +1,12 @@
 ---
 import type { GithubRepo } from '@/types';
-import { apiClient } from '@/utils';
+import { githubClient } from '@/utils';
 
 import RepoCard from '@/components/repo-card.astro';
 
 const HIDDEN_REPOS = ['action-send-mail', '.github'];
 
-const data = await apiClient
+const data = await githubClient
   .get('https://api.github.com/orgs/craftgate/repos')
   .then((res: Array<GithubRepo>) =>
     res.filter((repo) => !HIDDEN_REPOS.includes(repo.name)),
