@@ -4,12 +4,7 @@ import { githubClient } from '@/utils';
 
 import TeamMemberCard from '@/components/team-member-card.astro';
 
-const HIDDEN_MEMBERS = [
-  'craftgate-sdlc',
-  'emirgundem',
-  'merveylmaaz90',
-  'ozturkselin',
-];
+const HIDDEN_MEMBERS = import.meta.env.HIDDEN_MEMBERS.split(' ');
 
 const data = await githubClient
   .get('https://api.github.com/orgs/craftgate/members')

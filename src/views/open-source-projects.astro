@@ -4,7 +4,7 @@ import { githubClient } from '@/utils';
 
 import RepoCard from '@/components/repo-card.astro';
 
-const HIDDEN_REPOS = ['action-send-mail', '.github'];
+const HIDDEN_REPOS = import.meta.env.HIDDEN_REPOS.split(' ');
 
 const data = await githubClient
   .get('https://api.github.com/orgs/craftgate/repos')
