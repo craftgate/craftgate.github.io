@@ -4,12 +4,12 @@ import { githubClient } from '@/utils';
 
 import TeamMemberCard from '@/components/team-member-card.astro';
 
-const HIDDEN_MEMBERS = import.meta.env.HIDDEN_MEMBERS;
+const HIDDEN_MEMBERS = import.meta.env.HIDDEN_MEMBERS.split(' ');
 
 const data = await githubClient
   .get('https://api.github.com/orgs/craftgate/members')
   .then((res: Array<Omit<GithubUser, 'name'>>) =>
-    res.filter((member) => !HIDDEN_MEMBERS.split(' ').includes(member.login)),
+    res.filter((member) => !HIDDEN_MEMBERS.includes(member.login)),
   )
   .then((members) => {
     return Promise.all(

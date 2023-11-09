@@ -20,6 +20,8 @@ jobs:
         uses: withastro/action@v1
         env: 
           API_TOKEN: ${{ secrets.API_TOKEN }}
+          HIDDEN_REPOS: ${{ secrets.HIDDEN_REPOS }}
+          HIDDEN_MEMBERS: ${{ secrets.HIDDEN_MEMBERS }}
 
   deploy:
     needs: build

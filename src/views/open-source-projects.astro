@@ -9,7 +9,7 @@ const HIDDEN_REPOS = import.meta.env.HIDDEN_REPOS.split(' ');
 const data = await githubClient
   .get('https://api.github.com/orgs/craftgate/repos')
   .then((res: Array<GithubRepo>) =>
-    res.filter((repo) => !HIDDEN_REPOS.split(' ').includes(repo.name)),
+    res.filter((repo) => !HIDDEN_REPOS.includes(repo.name)),
   );
 ---
 
