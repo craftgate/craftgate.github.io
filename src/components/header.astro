@@ -9,18 +9,27 @@ import { Image } from 'astro:assets';
     <Image src="/images/logo.svg" width={145} height={37} alt="Craftgate" />
   </a>
   <nav>
-    <ul class="flex gap-8 font-medium">
+    <ul class="flex gap-6 sm:gap-8 font-medium">
       <li>
-        <a href="https://craftgate.github.io">Open Source</a>
+        <a href="https://craftgate.github.io" class="whitespace-nowrap"
+          >Open Source</a
+        >
       </li>
       <li>
-        <a href="https://developer.craftgate.io">Developer Portal</a>
+        <a href="https://developer.craftgate.io" class="whitespace-nowrap"
+          >Developer Portal</a
+        >
       </li>
       <li>
-        <a href="https://github.com/craftgate">Github</a>
+        <a href="https://github.com/craftgate" class="whitespace-nowrap"
+          >Github</a
+        >
       </li>
       <li>
-        <a href="https://github.com/craftgate/recruitment">Career</a>
+        <a
+          href="https://github.com/craftgate/recruitment"
+          class="whitespace-nowrap">Career</a
+        >
       </li>
     </ul>
   </nav>
