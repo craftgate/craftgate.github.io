@@ -37,9 +37,15 @@ const PROJECTS = [
 
 const data: Array<GithubRepo> = await Promise.all(
   PROJECTS.map(async ({ username, repo }) => {
-    return githubClient.get(`https://api.github.com/repos/${username}/${repo}`);
+    const response = await githubClient.get(
+      `https://api.github.com/repos/${username}/${repo}`,
+    );
+
+    if (response.error) return;
+
+    return response;
   }),
-);
+).then((repos) => repos.filter((repo) => Boolean(repo)));
 ---
 
 <section class="container flex flex-col gap-6 mb-24">
