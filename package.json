@@ -8,7 +8,7 @@
     "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "prettier": "prettier --write . --plugin=prettier-plugin-astro",
+    "prettier": "prettier --write src",
     "lint": "eslint --ext .js,.astro src"
   },
   "dependencies": {

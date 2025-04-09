@@ -9,7 +9,7 @@ const { name, login, avatar_url, html_url } = Astro.props;
 
 <a
   href={html_url}
-  class="group flex gap-4 items-center p-5 bg-card rounded-md"
+  class="group bg-card flex items-center gap-4 rounded-md p-5"
   target="_blank"
   rel="noopener noreferrer"
 >
@@ -17,7 +17,7 @@ const { name, login, avatar_url, html_url } = Astro.props;
     src={avatar_url}
     width={80}
     height={80}
-    alt={name ?? ""}
+    alt={name ?? ''}
     class="rounded-full"
   />
   <div class="flex flex-col gap-1 text-xl">

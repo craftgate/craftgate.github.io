@@ -3,13 +3,19 @@ import { Image } from 'astro:assets';
 ---
 
 <header
-  class="container flex flex-wrap gap-4 items-center justify-between py-5"
+  class="container flex flex-wrap items-center justify-between gap-4 py-5"
 >
   <a href="https://craftgate.io">
-    <Image src="/images/logo.svg" width={145} height={37} alt="Craftgate" />
+    <Image
+      src="/images/logo.svg"
+      width={145}
+      height={37}
+      alt="Craftgate"
+      loading="eager"
+    />
   </a>
   <nav>
-    <ul class="flex gap-6 sm:gap-8 font-medium">
+    <ul class="flex gap-6 font-medium sm:gap-8">
       <li>
         <a href="https://craftgate.github.io" class="whitespace-nowrap"
           >Open Source</a

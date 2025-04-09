@@ -20,13 +20,13 @@ const data = await githubClient
   });
 ---
 
-<section class="container flex flex-col gap-6 mb-24">
-  <h2 class="text-4xl text-center">Our Engineering Team</h2>
-  <p class="text-2xl text-center font-light mb-8">
+<section class="container mb-24 flex flex-col gap-6">
+  <h2 class="text-center text-4xl">Our Engineering Team</h2>
+  <p class="mb-8 text-center text-2xl font-light">
     Craftgate is a tech company that focuses on the fintech industry. We are
     working with high-qualified software engineers who have deep knowledge.
   </p>
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
     {data.map((user) => <TeamMemberCard {...user} />)}
   </div>
 </section>
