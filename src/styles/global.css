@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?&family=Rubik:wght@300;400;500&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  --font-family: 'Rubik', system-ui, sans-serif;
+
+  --color-tertiary: #cccccc;
+  --color-card: #222225;
+
+  --breakpoint-*: initial;
+  --breakpoint-xs: 425px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+}
+
+@layer base {
+  html {
+    @apply font-family text-sm antialiased sm:text-base;
+  }
+  body {
+    @apply relative overflow-x-hidden bg-black text-white;
+  }
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1rem;
+}

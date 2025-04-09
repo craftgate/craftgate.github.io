@@ -48,14 +48,14 @@ const data: Array<GithubRepo> = await Promise.all(
 ).then((repos) => repos.filter((repo) => Boolean(repo)));
 ---
 
-<section class="container flex flex-col gap-6 mb-24">
-  <h2 class="text-4xl text-center">Community Projects</h2>
-  <p class="text-2xl text-center font-light mb-8">
+<section class="container mb-24 flex flex-col gap-6">
+  <h2 class="text-center text-4xl">Community Projects</h2>
+  <p class="mb-8 text-center text-2xl font-light">
     Our commitment to open-source projects invites collaboration and collective
     ingenuity, driving technology forward for everyone. Never hesitate to jump
     into them and explore new ways of improvement and innovation.
   </p>
-  <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
     {data.map((repo) => <RepoCard {...repo} />)}
   </div>
 </section>

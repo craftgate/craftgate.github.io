@@ -9,22 +9,34 @@ const { name, description, stargazers_count, html_url } = Astro.props;
 
 <a
   href={html_url}
-  class="group flex flex-col gap-4 p-5 bg-card border border-white rounded-md"
+  class="group bg-card flex flex-col gap-4 rounded-md border border-white p-5"
   target="_blank"
   rel="noopener noreferrer"
 >
-  <div class="flex gap-3 items-center">
-    <Image src="/images/bookmark.svg" width={16} height={16} alt="Bookmark" />
+  <div class="flex items-center gap-3">
+    <Image
+      src="/images/bookmark.svg"
+      width={16}
+      height={16}
+      alt="Bookmark"
+      loading="eager"
+    />
     <h5 class="group-hover:underline">{name}</h5>
     <div
-      class="text-xs text-tertiary bg-card border border-tertiary rounded-full py-1 px-2"
+      class="text-tertiary bg-card border-tertiary rounded-full border px-2 py-1 text-xs"
     >
       Public
     </div>
   </div>
-  <p class="text-sm text-tertiary">{description}</p>
-  <div class="flex gap-2 items-center">
-    <Image src="/images/star.svg" width={16} height={16} alt="Star" />
+  <p class="text-tertiary text-sm">{description}</p>
+  <div class="flex items-center gap-2">
+    <Image
+      src="/images/star.svg"
+      width={16}
+      height={16}
+      alt="Star"
+      loading="eager"
+    />
     {stargazers_count}
   </div>
 </a>
