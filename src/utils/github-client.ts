@@ -11,7 +11,7 @@ const get = async (url: string) => {
     });
 
     if (!response.ok) {
-      throw new Error('Failed to fetch data');
+      throw new Error(`Failed to fetch data. url: ${url}`);
     }
 
     return response.json();
