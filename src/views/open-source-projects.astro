@@ -16,9 +16,10 @@ const data = await githubClient
 <section class="container mb-24 flex flex-col gap-6">
   <h2 class="text-center text-4xl">Open Source Projects</h2>
   <p class="mb-8 text-center text-2xl font-light">
-    Our software crafters designed and implemented so many libraries that our
-    merchants can easily integrate Craftgate API into their platforms. Please
-    checkout our public repositories hosted in our Github organization.
+      Our software crafters have developed a wide range of libraries and tools
+      that make it easy for merchants to integrate the Craftgate API into their platforms.
+      You can explore all of our open-source work in our GitHub organization,
+      where we regularly publish and maintain our public repositories.
   </p>
   <div class="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-3">
     {data.map((repo) => <RepoCard {...repo} />)}
