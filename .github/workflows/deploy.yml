@@ -18,6 +18,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Install, build, and upload your site
         uses: withastro/action@v3
+        with:
+          # Astro 7 needs Node 22.12 or later; the action defaults to Node 20.
+          node-version: 22
         env: 
           API_TOKEN: ${{ secrets.API_TOKEN }}
           HIDDEN_REPOS: ${{ secrets.HIDDEN_REPOS }}
