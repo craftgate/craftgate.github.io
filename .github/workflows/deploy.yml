@@ -18,7 +18,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Install, build, and upload your site
         uses: withastro/action@v3
-        env: 
+        with:
+          node-version: 22
+        env:
           API_TOKEN: ${{ secrets.API_TOKEN }}
           HIDDEN_REPOS: ${{ secrets.HIDDEN_REPOS }}
           HIDDEN_MEMBERS: ${{ secrets.HIDDEN_MEMBERS }}
